@@ -1,11 +1,11 @@
 {
-  "name": "ccapi",
+  "name": "currency-converter-api",
   "version": "1.0.0",
   "description": "a node api which converts currency to be comsumed by front end",
   "main": "index.js",
   "scripts": {
     "start": "serverless offline",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc"
   },
   "keywords": [
     "node",
@@ -18,7 +18,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "request": "^2.88.2",
-    "routes": "^2.1.0",
     "serverless-http": "^2.5.0",
     "ts-node": "^9.0.0"
   },
