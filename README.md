@@ -1,9 +1,9 @@
 # Currency-Converter-Api
-A sample app that implements currency convertion as an API.
+A sample app that implements currency conversion API.
 
 **Project**
 
-Implementing a NodeJS API to receive currency convertion rates from the following api:
+Implementing a NodeJS API to receive currency conversion rates from the following api:
 
 > https://free.currconv.com/api/
 
