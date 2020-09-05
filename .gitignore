@@ -9,3 +9,6 @@ node_modules/
 
 # Build directories
 .build/*
+
+# OS generated files #
+.DS_Store
