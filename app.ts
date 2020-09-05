@@ -12,36 +12,43 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/convert', (req, res) => {
-    const fromCurrency = req.query.fr
-    const toCurrency = req.query.to
+    const fromCurrency = req.query.from
+    const toCurrency = (req.query.to)
     let amount:any = req.query.amount
     let q = fromCurrency + '_' + toCurrency;
     console.log('q:', q)
-    console.log('amount:', amount)
   
-    let url = api.url + 'convert?q=' + q + '&compact=ultra&apiKey=' + api.apiKey;
+    let url = api.url + 'convert?q=' + q + '&apiKey=' + api.apiKey;
 
     request(url, function (error, response, body) {
       console.log('error:', error);
       console.log('statusCode:', response && response.statusCode);
       console.log('body:', body);
       
-      let jsonObj = JSON.parse(body);
-      let val = (jsonObj[Object.keys(jsonObj)[0]]);      
-      let finalAmount:number = parseFloat(amount) * val
-      console.log('finalAmount:', finalAmount)
+      let jsonObj = JSON.parse(body).results;
+      let val = (jsonObj[Object.keys(jsonObj)[0]].val);
+      let id = (jsonObj[Object.keys(jsonObj)[0]].id);
+      let convertedAmount = parseFloat(amount) * val
       
       const result = {
-          "Conversion Rate": JSON.parse(body),
-          "Given from": `${amount} ${fromCurrency}`,
-          "Converted to": `${finalAmount} ${toCurrency}`
+        query: {
+          from: fromCurrency,
+          to: toCurrency,
+          amount: parseFloat(amount)
+        },
+        results: {
+          id: id,
+          rate: val,
+          convertedAmount: parseFloat(convertedAmount.toFixed(4))
+        }
+          
       };
       res.send(result)
     })
 });
 
 app.get('/currencies', (req, res) => {
-    let url = api.url + "currencies?" + '&compact=ultra&apiKey=' + api.apiKey;
+    let url = api.url + "currencies?" + '&apiKey=' + api.apiKey;
     
     request(url, function (error, response, body) {
       console.log('error:', error);
@@ -52,7 +59,7 @@ app.get('/currencies', (req, res) => {
 });
 
 app.get('/countries', (req, res) => {
-    let url = api.url + "countries?" + '&compact=ultra&apiKey=' + api.apiKey;
+    let url = api.url + "countries?" + '&apiKey=' + api.apiKey;
     
     request(url, function (error, response, body) {
       console.log('error:', error);
