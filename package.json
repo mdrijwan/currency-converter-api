@@ -1,0 +1,34 @@
+{
+  "name": "ccapi",
+  "version": "1.0.0",
+  "description": "a node api which converts currency to be comsumed by front end",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless offline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "currency",
+    "converter"
+  ],
+  "author": "Md Rijwan Razzaq Matin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "routes": "^2.1.0",
+    "serverless-http": "^2.5.0",
+    "ts-node": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.6.4",
+    "@types/request": "^2.48.5",
+    "serverless-offline": "^6.7.0",
+    "serverless-plugin-typescript": "^1.1.9",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2"
+  }
+}
