@@ -1,0 +1,26 @@
+service: currency-converter
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-southeast-1
+  memorySize: 512
+  
+functions:
+  currencyConverter:
+    handler: app.handler
+    events:
+      - http:
+          path: convert
+          method: get
+      - http:
+          path: currencies
+          method: get
+      - http:
+          path: countries
+          method: get
