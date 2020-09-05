@@ -51,3 +51,8 @@ npm run start
 - To convert the currencies (`pass the params in query`)
   + GET/dev/convert
   > Example: GET/localhost:3000/dev/convert?fr=USD&to=MYR
+  
+##### Demo Screenshot!
+![demo](https://github.com/mdrijwan/currency-converter-api/blob/master/from_usd_to_myr.png)
+  
+
