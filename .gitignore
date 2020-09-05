@@ -1,0 +1,11 @@
+# Compiled files
+*.js
+
+# IDE - VSCode
+.vscode/*
+
+# Dependency directories
+node_modules/
+
+# Build directories
+.build/*
