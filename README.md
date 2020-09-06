@@ -39,7 +39,7 @@ Then start the server and follow the instructions in the console.
 npm run start
 ```
 
-#### Let's get started!
+### Let's get started!
 
 ***Methods***
 - To see list of currencies
@@ -51,6 +51,9 @@ npm run start
 - To convert the currencies (`pass the params in query`)
   + GET/dev/convert
   > Example: GET/localhost:3000/dev/convert?fr=USD&to=MYR
+
+#### Implementation
+This API will be consumed by the VueJS App Currency-Converter-App to display the currency conversion 
   
 ##### Demo Screenshot!
 ![demo](https://github.com/mdrijwan/currency-converter-api/blob/master/from_usd_to_myr.png)
