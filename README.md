@@ -53,7 +53,7 @@ npm run start
   > Example: GET/localhost:3000/dev/convert?fr=USD&to=MYR
 
 #### Implementation
-This API will be consumed by the VueJS App Currency-Converter-App to display the currency conversion 
+This API will be consumed by a [VueJS App](https://github.com/mdrijwan/currency-converter-app) to display the currency conversion 
   
 ##### Demo Screenshot!
 ![demo](https://github.com/mdrijwan/currency-converter-api/blob/master/from_usd_to_myr.png)
