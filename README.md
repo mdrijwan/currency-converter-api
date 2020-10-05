@@ -50,7 +50,7 @@ npm run start
 
 - To convert the currencies (`pass the params in query`)
   + GET/dev/convert
-  > Example: GET/localhost:3000/dev/convert?fr=USD&to=MYR
+  > Example: GET/localhost:3000/dev/convert?from=USD&to=MYR&amount=100
 
 #### Implementation
 This API will be consumed by a [VueJS App](https://github.com/mdrijwan/currency-converter-app) to display the currency conversion 
