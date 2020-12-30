@@ -16,15 +16,19 @@
   "author": "Md Rijwan Razzaq Matin",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.818.0",
     "express": "^4.17.1",
     "request": "^2.88.2",
     "serverless-http": "^2.5.0",
-    "ts-node": "^9.0.0"
+    "ts-node": "^9.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.8",
     "@types/node": "^14.6.4",
     "@types/request": "^2.48.5",
+    "json-merger": "^1.1.5",
+    "merge-json-file": "^1.0.1",
     "serverless-offline": "^6.7.0",
     "serverless-plugin-typescript": "^1.1.9",
     "ts-loader": "^8.0.3",

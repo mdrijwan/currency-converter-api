@@ -1,4 +1,4 @@
-service: currency-converter
+service: pg-data-crawler
 
 plugins:
   - serverless-plugin-typescript
@@ -7,20 +7,63 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
-  region: ap-southeast-1
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  stackName: data-crawler
+  apiName: pgdata
   memorySize: 512
+  timeout: 15
+  logRetentionInDays: 14
+  deploymentBucket: 
+    name: rijwan-pg-data
+  dynamodb:
+    stages:
+      - dev
+    start:
+      host: localhost
+      port: 8000
+      migrate: true
+      seed: true
+      sharedDb: true
+      dbPath: ${env:HOME}/dynamodb-local
+    seed:
+      domain:
+        sources:
+          - table: location
+            sources: [./local-data/location.json]
+
+resources:
+  Resources:
+    LocationTable:
+      Type: AWS::DynamoDB::Table
+      DeletionPolicy: Retain
+      Properties:
+        TableName: location
+        AttributeDefinitions:
+          - AttributeName: locationId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: locationId
+            KeyType: HASH
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
+        BillingMode: PAY_PER_REQUEST
   
 functions:
-  currencyConverter:
+  dataCrawler:
     handler: app.handler
     events:
       - http:
-          path: convert
+          path: data
           method: get
+          cors: true
+          response:
+            headers:
+              Content-Type: "'application/json'"
       - http:
-          path: currencies
+          path: save
           method: get
-      - http:
-          path: countries
-          method: get
+          cors: true
+          response:
+            headers:
+              Content-Type: "'application/json'"

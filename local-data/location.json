@@ -1,0 +1,13 @@
+{
+    "locationId": "lct001",
+    "objectType": "DISTRICT",
+    "objectId": "KD001",
+    "displayText": "Alor Setar",
+    "displayType": "District",
+    "displayDescription": "Alor Setar, Kedah",
+    "properties": {
+        "region": "MY02",
+        "district": "KD001"
+    },
+    "totalWeight": 6
+}
