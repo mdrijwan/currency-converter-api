@@ -29,6 +29,7 @@
     "@types/request": "^2.48.5",
     "json-merger": "^1.1.5",
     "merge-json-file": "^1.0.1",
+    "serverless-dynamodb-local": "^0.2.24",
     "serverless-offline": "^6.7.0",
     "serverless-plugin-typescript": "^1.1.9",
     "ts-loader": "^8.0.3",

@@ -2,7 +2,7 @@ const api = {
     url: 'https://prefix-search.propertyguru.com/v1/my/autocomplete?',
     region: 'my',
     locale: 'en',
-    limit: 10,
+    limit: 10000,
     type_1: 'REGION',
     type_2: 'DISTRICT',
     type_3: 'AREA',
